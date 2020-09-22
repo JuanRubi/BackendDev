@@ -30,6 +30,8 @@
     echo "<br>Using dot ".$variable;    // . is used for concatenation
     ?>
 
+    <br><br>
+
     <h3>Built-in Function</h3>
     <?php
         echo "phpinfo() - Gives information about php such as version being used.";
@@ -47,6 +49,8 @@
         echo "<br>$integer1 / $floatNum = ". ($integer1 / $floatNum);
     ?>
 
+    <br><br>
+
     <h3>Conditional Statements</h3>
     <p>Given an age output whether the person is an adult or not:</p>
     <?php 
@@ -61,5 +65,33 @@
         }
     ?>
 
+    <br><br>
+
+    <h3>Includes</h3>
+    <p>Works like link for css or script src="" for JavaScript.</p>
+    
+    <?php include 'includeFile.php'; ?>
+
+    <br>
+
+    <h3>Arrays</h3>
+
+    <?php 
+        echo "Arrays are declared by assigning array(x1,x2,...), where xN is the Nth item ";
+        echo "in the array, to a variable. <br>";
+        $numArray = array(0,1,2,3,4);
+        echo "Array: ".$numArray[0]." ".$numArray[1]." ".$numArray[2]." ".$numArray[3]." ".$numArray[4];
+        echo "<br>There are: ".count($numArray)." numbers in our array.";
+
+        // Using a for loop.
+        for($i = 0; $i < count($numArray); $i++)
+        {
+            echo "Looping through the array: ".$numArray[$i]."<br>";
+        }
+
+        // Key/value array. Uses key to access items instead of indices. 
+        $nameValue = array("Juan" => "24", "Luis" => "15");
+        echo "<br>Luis' age is: ".$nameValue['Luis'];
+    ?>
 </body>
 </html>
