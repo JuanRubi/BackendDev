@@ -25,6 +25,7 @@
         else
         {
             echo "<script> alert('Invalid username or password.'); </script>";
+            echo "<script> window.history.back(); </script>";
         }
     ?>    
 </body>

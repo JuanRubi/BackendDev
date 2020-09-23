@@ -32,6 +32,7 @@
 
     <br><br>
 
+    <!-------------     Built-in Functions      --------------------->
     <h3>Built-in Function</h3>
     <?php
         echo "phpinfo() - Gives information about php such as version being used.";
@@ -47,10 +48,29 @@
         echo "<br>$integer1 - $floatNum = ". ($integer1 - $floatNum);
         echo "<br>$integer1 x $floatNum = ". ($integer1 * $floatNum);
         echo "<br>$integer1 / $floatNum = ". ($integer1 / $floatNum);
+
+        echo "<br><br>";
+
+        // strlen(x) - where x is a string
+        print("strlen(str) - Returns the length of the string str.<br>");
+        $stringLength = strlen("Carl F Gauss");
+        echo "str = 'Carl F Gauss'<br>";
+        echo "str length is: ";
+        echo $stringLength;
+
+        echo "<br><br>";
+
+        // date() function
+        $todaysDate = date("m/d/y");
+        echo "date(x) - Returns today's date where x is the format of choice.<br>";
+        echo $todaysDate;
+
+
     ?>
 
     <br><br>
 
+    <!-------------------       Conditional Statements      ---------------------->
     <h3>Conditional Statements</h3>
     <p>Given an age output whether the person is an adult or not:</p>
     <?php 
@@ -67,6 +87,7 @@
 
     <br><br>
 
+    <!------------------        Includes        --------------------->
     <h3>Includes</h3>
     <p>Works like link for css or script src="" for JavaScript.</p>
     
@@ -74,6 +95,7 @@
 
     <br>
 
+    <!------------------        Arrays      ---------------------->
     <h3>Arrays</h3>
 
     <?php 
@@ -81,13 +103,22 @@
         echo "in the array, to a variable. <br>";
         $numArray = array(0,1,2,3,4);
         echo "Array: ".$numArray[0]." ".$numArray[1]." ".$numArray[2]." ".$numArray[3]." ".$numArray[4];
-        echo "<br>There are: ".count($numArray)." numbers in our array.";
+        echo "<br>There are: ".count($numArray)." numbers in our array.<br><br>";
 
         // Using a for loop.
         for($i = 0; $i < count($numArray); $i++)
         {
-            echo "Looping through the array: ".$numArray[$i]."<br>";
+            echo "Using for loop: ".$numArray[$i]."<br>";
         }
+
+        echo "<br>";
+
+        foreach($numArray as $number)
+        {
+            echo "Using foreach loop: ".$number."<br>";
+        }
+
+
 
         // Key/value array. Uses key to access items instead of indices. 
         $nameValue = array("Juan" => "24", "Luis" => "15");
