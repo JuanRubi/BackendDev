@@ -1,0 +1,47 @@
+
+/*------------------        Master Styles       -------------------*/
+
+body {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2rem;
+}
+
+main {
+    height: 20rem;
+    text-align: center;
+    background-color: aliceblue;
+}
+
+
+/*-----------------     Navigation Styles       -------------------*/
+
+nav {
+    height: 5rem;
+    justify-content: center;
+}
+
+.navLinks {
+    margin: 0 auto;
+    margin-top: 4rem;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.navLink {
+    margin: 0 2rem;
+    text-decoration: none;
+}
+
+.activeNavLink {
+    border-bottom: 1px solid black;
+}
+
+/*------------------        Login Form Styles       ---------------*/
+
+form {
+    margin-top: 5rem;
+}
+
+p {
+    padding-top: 1rem;
+}
