@@ -7,6 +7,7 @@
 </head>
 
 <body>
+    <!-------------     Forms       ---------------->
     <h1>Forms</h1>
     <p>PHP can process the forms that we create in HTML. To make sure they are filled
         out properly.
