@@ -1,7 +1,7 @@
 # BackendDev
 
 This repository will contain the basics of PHP coding. The goal is to get familiar with
-PHP to use in projects.
+the basics of PHP to use in projects.
 
 ## Technologies
 - PHP7
@@ -11,3 +11,17 @@ PHP to use in projects.
      - Outputting
      - Variables
      - Simple Arithmetic
+  2. Functions
+     - Built-in funcitons
+     - Creating Functions
+  3. Arrays
+     - Indexed array
+     - Associative array
+  4. Forms
+     - Access form inputs
+     - Simple Validation
+  5. Sessions
+     - Starting a session
+     - Session Variables
+     - Ending a Session
+  6. Simple Login Form project
