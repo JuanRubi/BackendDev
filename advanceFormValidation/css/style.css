@@ -4,6 +4,14 @@
 body {
     font-family: Arial, sans-serif;
     font-size: 1rem;
+    width: 700px;
+    height: 650px;
+    margin: 0 auto;
+}
+
+form {
+    margin-top: 3rem;
+    background-color: #eeeeee;
 }
 
 fieldset {
@@ -15,7 +23,7 @@ label {
     width: 180px;
     float: left;
     clear: both;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
 }
 
 label em {
@@ -45,9 +53,9 @@ label.error {
     float: left;
     color: red;
     clear: none;
-    width: 200px;
+    width: 250px;
     padding-left: 10px;
-    font-size: 11px;
+    font-size: 0.8rem;
 }
 
 .required_msg {

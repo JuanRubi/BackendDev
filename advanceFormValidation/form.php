@@ -8,6 +8,10 @@
 </head>
 
 <body>
+	<h3>Advance Form Validation</h3>
+	<p>This form is validated using jQuery validation plugin and phoneUS.</p>
+	
+	<!-----------------------		Form Creation		---------------------->
     <form action="" method="post" id="form">
 		<fieldset>
 			
@@ -32,21 +36,24 @@
 			
 		</fieldset>
     </form>
-    
+	
+	<!-----------------		JS Links and Validation Code		-------------->
     <script src="jquery.js"></script>
 	<script src="validate.js"></script>
 	<script>
-	$(document).ready(function(){
+		// Starting jQuery.
+		$(document).ready(function(){
 
-		// Add US Phone Validation
-		jQuery.validator.addMethod('phoneUS', function(phone_number, element) {
-    	phone_number = phone_number.replace(/\s+/g, ''); 
-    	return this.optional(element) || phone_number.length > 9 &&
-        	phone_number.match(/^(1-?)?(\([2-9]\d{2}\)|[2-9]\d{2})-?[2-9]\d{2}-?\d{4}$/);
-		}, 'Please enter a valid phone number.');
+			// Add US Phone Validation
+			jQuery.validator.addMethod('phoneUS', function(phone_number, element) {
+			phone_number = phone_number.replace(/\s+/g, ''); 
+			return this.optional(element) || phone_number.length > 9 &&
+				phone_number.match(/^(1-?)?(\([2-9]\d{2}\)|[2-9]\d{2})-?[2-9]\d{2}-?\d{4}$/);
+			}, 'Please enter a valid phone number.');
 
-		$("#form").validate();
-	});
-</script>
+			// Add validation to form.
+			$("#form").validate();
+		});
+	</script>
 </body>
 </html>

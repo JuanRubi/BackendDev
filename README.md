@@ -26,3 +26,6 @@ the basics of PHP to use in projects.
      - Ending a Session
   6. Simple Login Form project
   7. Connecting to MySQL Database
+  8. Advance Form Validation
+     - jQuery Validation Plugin
+     - phoneUS Validation
