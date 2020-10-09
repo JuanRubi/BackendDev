@@ -1,5 +1,8 @@
 <?php 
 // Creating variables.
+$to = 'example@domain.com';
+$subject = "Sending form to email.";
+
 $error_open = "<label class='error'>";
 $error_close = "</label>";
 $valid_form = TRUE;
@@ -25,22 +28,23 @@ if(isset($_POST['submit']))
         $form[$element] = htmlspecialchars($_POST[$element]);
     }
 
+    $error_msg = "Please fill in all required fields.";
     // Check required form elements.
     if($form['name'] == '')
     {
-        $error['name'] = $error_open . "Please fill in all required fields." . $error_close;
+        $error['name'] = $error_open . $error_msg . $error_close;
         $valid_form = FALSE;
     }
 
     if($form['phone'] == '')
     {
-        $error['phone'] = $error_open . "Please fill in all required fields." . $error_close;
+        $error['phone'] = $error_open . $error_msg . $error_close;
         $valid_form = FALSE;
     }
 
     if($form['email'] == '')
     {
-        $error['email'] = $error_open . "Please fill in all required fields." . $error_close;
+        $error['email'] = $error_open . $error_msg . $error_close;
         $valid_form = FALSE;
     }
 
@@ -57,11 +61,44 @@ if(isset($_POST['submit']))
         $valid_form = FALSE;
     }
 
+    // Check for bad data.
+    if(contains_bad_str($form['name']) ||
+       contains_bad_str($form['email']) ||
+       contains_bad_str($form['phone']) ||
+       contains_bad_str($form['fax']) ||
+       contains_bad_str($form['comments']))
+    {
+        $valid_form = FALSE;
+    }
+
+    if(contains_newLines($form['name']) ||
+       contains_newLines($form['email']) ||
+       contains_newLines($form['phone']) ||
+       contains_newLines($form['fax']))
+    {
+        $valid_form = FALSE;
+    }
+
     // Check if form is valid
     if($valid_form)
     {
+        // Submit the email message.
+        $message = "Name: " . $form['name'] . "\n";
+        $message .= "Email: " . $form['email'] . "\n";
+        $message .= "Phone: " . $form['phone'] . "\n";
+        $message .= "Fax: " . $form['fax'] . "\n\n";
+        $message .= "Message: " . $form['comments'] . "\n";
+
+        $headers = "From: www.example.com <admin@domain.com>\r\n";
+        $headers .= "x-Sender: <admin@domain.com>\r\n";
+        $headers .= "x-Mailer: PHP/" . phpversion() . "\r\n";
+        $headers .= "Reply-To: " . $form['email'];
+
+        // Send email.
+        mail($to, $subject, $message, $headers);
+
         // Redirect to desired page if login is successful.
-        header("Location: . $redirect");
+        header("Location: " . $redirect);
     }
     else
     {
@@ -77,5 +114,40 @@ else
 
     // Display form if not submitted.
     include('form.php');
+}
+
+
+// Protect against spam.
+function contains_bad_str($str_to_test)
+{
+    $bad_strings = array(
+        "content-type:",
+        "mime-version:",
+        "multipart/mixed",
+        "Content-Transfer-Encoding:",
+        "bcc:",
+        "cc:",
+        "to:"
+    );
+
+    foreach($bad_strings as $bad_string)
+    {
+        if(stristr(strtolower($str_to_test), $bad_string))
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+function contains_newLines($str_to_test)
+{
+    if(preg_match("/(%0A|%0D|\\n+|\\r+)/i", $str_to_test) != 0)
+    {
+        return true;
+    }
+
+    return false;
 }
 ?>
