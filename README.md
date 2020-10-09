@@ -29,3 +29,6 @@ the basics of PHP to use in projects.
   8. Advance Form Validation
      - jQuery Validation Plugin
      - phoneUS Validation
+     - Advance PHP Form Validation
+     - Send Form Contents to Email
+     - Spam Checking
